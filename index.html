@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Theme Toggle -->
+  <button id="themeToggleBtn" class="theme-toggle">🌙 Dark Mode</button>
+
+  <div class="dashboard">
+
+    <!-- Profile -->
+    <div class="profile-card">
+      <h2 id="displayName">Amare Price</h2>
+      <p id="displayEmail">priceas2@vcu.edu</p>
+      <p>Favorite Color: <span id="displayColor">Blue</span></p>
+      <div id="profileMessage" class="message"></div>
+    </div>
+
+    <!-- Update Profile -->
+    <div class="form-section">
+      <h3>Update Profile</h3>
+      <input type="text" id="nameInput" placeholder="Name">
+      <input type="email" id="emailInput" placeholder="Email">
+      <input type="text" id="colorInput" placeholder="Favorite Color">
+      <button id="updateProfileBtn">Update Profile</button>
+      <div id="formMessage" class="message"></div>
+    </div>
+
+    <!-- Activity Log -->
+    <div class="activity-card">
+      <h3>Activity Log</h3>
+
+      <input type="text" id="activityInput" placeholder="Log activity">
+      <button id="addActivityBtn">Add Activity</button>
+
+      <select id="filterSelect">
+        <option value="all">All</option>
+        <option value="profile">Profile</option>
+        <option value="custom">Custom</option>
+      </select>
+
+      <select id="sortSelect">
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+        <option value="alpha">A → Z</option>
+      </select>
+
+      <div id="activityStats"></div>
+      <ul id="activityList"></ul>
+
+      <button id="saveJsonBtn">Save JSON</button>
+      <button id="loadJsonBtn">Load JSON</button>
+      <button id="clearLogBtn" class="danger">Clear</button>
+
+      <div id="activityMessage" class="message"></div>
+    </div>
+
+    <!-- API Section -->
+    <div class="activity-card">
+      <h3>External Users</h3>
+
+      <button id="loadUsersBtn">Load Users</button>
+      <button id="clearUsersBtn">Clear</button>
+
+      <div id="apiMessage" class="message"></div>
+      <ul id="usersList" class="activity-list"></ul>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

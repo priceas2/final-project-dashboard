@@ -1,0 +1,18 @@
+{
+  "name": "final-project-dashboard",
+  "version": "1.0.0",
+  "description": "Full-stack dashboard using Express and frontend UI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Amare Price",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "type": "commonjs"
+}
