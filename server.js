@@ -1,10 +1,14 @@
 const express = require("express");
+const path = require("path");
+const cors = require("cors");
+
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 const APP_NAME = process.env.APP_NAME || "Personal Dashboard API";
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 
 // Logging middleware (REQUIRED)
@@ -13,17 +17,25 @@ app.use((req, res, next) => {
   next();
 });
 
+// 🔥 SERVE FRONTEND FILES
+app.use(express.static(path.join(__dirname)));
+
+// Root route (loads your index.html)
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
 // Mock database
 let items = [
   { id: 1, name: "Amare Price", email: "priceas2@vcu.edu" }
 ];
 
-// GET
+// GET route
 app.get("/api/items", (req, res) => {
   res.json(items);
 });
 
-// POST
+// POST route
 app.post("/api/items", (req, res) => {
   const newItem = {
     id: Date.now(),
@@ -35,6 +47,7 @@ app.post("/api/items", (req, res) => {
   res.status(201).json(newItem);
 });
 
+// Start server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`${APP_NAME} running on port ${PORT}`);
 });
